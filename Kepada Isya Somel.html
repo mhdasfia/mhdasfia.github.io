@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Kepada Isya Somel</title> 
+  <link rel="stylesheet" href="style.css">
+  <style>
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: whitesmoke;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.img {
+    height: 100%;
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.5em;
+    color: #e94d58;
+    margin: 15px 0;
+}
+.btn-group {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+button {
+    position: absolute;
+    width: 150px;
+    height: inherit;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 30px;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px gray;
+    border: 2px solid #e94d58;
+    font-size: 1.2em;
+}
+button:nth-child(1) {
+    margin-left: -200px;
+    background: #e94d58; 
+    color: white; 
+}
+button:nth-child(2) {
+    margin-right: -200px;
+    background: #ffffff; 
+    color: #e94d58; 
+}
+  </style>
+ </head> 
+ <body> 
+  <div class="wrapper"> 
+   <h2 class="question">Hi Isya, pa polah kitak?</h2>
+   <h2 class="question">Puasa tahun tok ada pecah sik?</h2>
+   <img class="img" alt="img" src="https://i.kym-cdn.com/photos/images/original/002/461/188/20d.png"> 
+   <div class="btn-group"> <button class="sikda-btn">Sikda</button> <button class="ada-btn">Ada</button> 
+   </div> 
+  </div> 
+  <script>
+const wrapper = document.querySelector(".wrapper");
+const question = document.querySelector(".question");
+const img = document.querySelector(".img");
+const sikdaBtn = document.querySelector(".sikda-btn");
+const adaBtn = document.querySelector(".ada-btn");
+const secondQuestion = document.querySelectorAll(".question")[1];
+
+sikdaBtn.addEventListener("click", () => {
+  question.innerHTML = "Serious talk";
+  secondQuestion.innerHTML = "Ada berak sik hari tok tek?"; 
+  img.src =
+    "https://i.imgflip.com/4/76gumv.png";
+});
+
+adaBtn.addEventListener("click", () => {
+  const adaBtnRect = sikdaBtn.getBoundingClientRect();
+  const maxX = window.innerWidth - adaBtnRect.width;
+  const maxY = window.innerHeight - adaBtnRect.height;
+
+  const randomX = Math.floor(Math.random() * maxX);
+  const randomY = Math.floor(Math.random() * maxY);
+
+  adaBtn.style.left = randomX + "px";
+  adaBtn.style.top = randomY + "px";
+});
+</script>
+ </body>
+</html>
